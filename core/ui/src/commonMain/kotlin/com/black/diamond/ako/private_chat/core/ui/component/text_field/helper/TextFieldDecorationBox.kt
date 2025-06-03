@@ -13,9 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import com.black.diamond.ako.private_chat.core.ui.resources.DimensRes
-import org.jetbrains.compose.resources.painterResource
-import privatechat.core.ui.generated.resources.Res
-import privatechat.core.ui.generated.resources.baseline_home_24
 
 @Composable
 fun NormalTextFieldDecorationBox(
@@ -23,7 +20,8 @@ fun NormalTextFieldDecorationBox(
     text: String,
     placeholder: String,
     trailingIcon: Painter?,
-    contentDescription: String
+    contentDescription: String,
+    onTrailingIconClick: () -> Unit = {}
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Box(
@@ -47,10 +45,10 @@ fun NormalTextFieldDecorationBox(
                 modifier = Modifier
                     .padding(end = DimensRes.spacingSmall)
                     .clip(CircleShape)
-                    .clickable { }
+                    .clickable { onTrailingIconClick() }
                     .padding(DimensRes.spacingNormal)
                     .size(DimensRes.defaultIconSize),
-                painter = painterResource(Res.drawable.baseline_home_24),
+                painter = trailingIcon,
                 contentDescription = contentDescription
             )
         }

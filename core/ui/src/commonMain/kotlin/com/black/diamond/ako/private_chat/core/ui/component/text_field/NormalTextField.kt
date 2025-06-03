@@ -35,6 +35,7 @@ fun NormalTextField(
     label: String,
     placeholder: String,
     isError: Boolean = false,
+    singleLine: Boolean = false,
     errorMessage: String = "",
     shape: Shape = MaterialTheme.shapes.small,
     inputBoxHeight: Dp = Dp.Unspecified,
@@ -72,7 +73,7 @@ fun NormalTextField(
                 fontWeight = FontWeight.SemiBold,
                 fontSize = TextUnitRes.bodyMedium
             ),
-            singleLine = true,
+            singleLine = singleLine,
             value = text,
             onValueChange = onTextChange,
             decorationBox = { innerTextField ->

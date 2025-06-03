@@ -37,7 +37,6 @@ fun App() {
                text = text,
                label = "Email",
                isError = true,
-               trailingIcon = painterResource(Res.drawable.compose_multiplatform),
                errorMessage = "Email must not be emty.",
                placeholder = "Hello",
                onTextChange = { text = it },
